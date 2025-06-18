@@ -23,5 +23,11 @@ export DB_POSTGRESDB_USER=$N8N_DB_USER
 export DB_POSTGRESDB_PASSWORD=$N8N_DB_PASSWORD
 export DB_POSTGRESDB_PGSSLMODE=$N8N_DB_PGSSLMODE
 
+if [ -n "$N8N_CUSTOM_EXTENSIONS" ]; then
+    export N8N_CUSTOM_EXTENSIONS="/opt/n8n-custom-nodes:${N8N_CUSTOM_EXTENSIONS}"
+else
+    export N8N_CUSTOM_EXTENSIONS="/opt/n8n-custom-nodes"
+fi
+
 # kickstart nodemation
 n8n
