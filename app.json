@@ -41,6 +41,10 @@
       "worker": {
         "quantity": 2,
         "size": "basic"
+      },
+      "webhook": {
+        "quantity": 1,
+        "size": "basic"
       }
     },
     "addons": [
