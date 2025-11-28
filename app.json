@@ -27,11 +27,19 @@
       "PGSSLMODE": {
         "description": "SSL is required to connect to Postgres on Heroku",
         "value": "no-verify"
+      },
+      "EXECUTIONS_MODE": {
+        "description": "Execution mode for n8n. Set to 'queue' to enable queue mode with workers.",
+        "value": "queue"
       }
     },
     "formation": {
       "web": {
         "quantity": 1,
+        "size": "basic"
+      },
+      "worker": {
+        "quantity": 2,
         "size": "basic"
       }
     },
@@ -41,6 +49,9 @@
         "options": {
           "version": "14"
         }
+      },
+      {
+        "plan": "heroku-redis:mini"
       },
       {
         "plan": "papertrail:choklad"
