@@ -38,6 +38,8 @@ if [ -n "$REDIS_URL" ]; then
     fi
     # Redis on Heroku typically uses SSL
     export QUEUE_BULL_REDIS_TLS=true
+    # Disable TLS certificate verification for Heroku Redis (self-signed certificates)
+    export QUEUE_BULL_REDIS_TLS_REJECT_UNAUTHORIZED=false
 fi
 
 if [ -n "$N8N_CUSTOM_EXTENSIONS" ]; then
